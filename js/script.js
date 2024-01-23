@@ -38,10 +38,10 @@ class BoxShadowGenerator {
   }
 
   applyBoxShadow() {
-    this.previewBox.style.boxShadow = `${this.horizontalRange.value}px 
-    ${this.verticalRange.value}px 
-    ${this.blurRange.value}px 
-    ${this.spreadRange.value}px 
+    this.previewBox.style.boxShadow = `${this.horizontalReference.value}px 
+    ${this.verticalReference.value}px 
+    ${this.blurReference.value}px 
+    ${this.spreadReference.value}px 
     #000000`;
 
     this.currentRule = this.previewBox.style.boxShadow;
@@ -51,6 +51,11 @@ class BoxShadowGenerator {
     this.rule.textContent = `${this.currentRule};`;
     this.webkitRule.textContent = `${this.currentRule};`;
     this.mozRule.textContent = `${this.currentRule};`;
+  }
+
+  updateBoxShadow() {
+    this.applyBoxShadow();
+    this.showRule();
   }
 }
 
@@ -88,3 +93,42 @@ const boxShadowGenerator = new BoxShadowGenerator(
 boxShadowGenerator.initialize();
 
 // Event listeners
+horizontalRange.addEventListener("input", () => {
+  horizontalReference.value = horizontalRange.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+horizontalReference.addEventListener("input", () => {
+  horizontalRange.value = horizontalReference.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+verticalRange.addEventListener("input", () => {
+  verticalReference.value = verticalRange.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+verticalReference.addEventListener("input", () => {
+  verticalRange.value = verticalReference.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+blurRange.addEventListener("input", () => {
+  blurReference.value = blurRange.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+blurReference.addEventListener("input", () => {
+  blurRange.value = blurReference.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+spreadRange.addEventListener("input", () => {
+  spreadReference.value = spreadRange.value;
+  boxShadowGenerator.updateBoxShadow();
+});
+
+spreadReference.addEventListener("input", () => {
+  spreadRange.value = spreadReference.value;
+  boxShadowGenerator.updateBoxShadow();
+});

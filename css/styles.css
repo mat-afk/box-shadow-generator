@@ -78,6 +78,8 @@ h2 {
   width: 30px;
   margin-left: 1rem;
   text-align: center;
+  background-color: transparent;
+  border: 1px solid #333;
 }
 
 .reference-input input::-webkit-outer-spin-button,

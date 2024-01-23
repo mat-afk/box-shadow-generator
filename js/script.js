@@ -26,6 +26,32 @@ class BoxShadowGenerator {
     this.webkitRule = webkitRule;
     this.mozRule = mozRule;
   }
+
+  initialize() {
+    this.horizontalReference.value = this.horizontalRange.value;
+    this.verticalReference.value = this.verticalRange.value;
+    this.blurReference.value = this.blurRange.value;
+    this.spreadReference.value = this.spreadRange.value;
+
+    this.applyBoxShadow();
+    this.showRule();
+  }
+
+  applyBoxShadow() {
+    this.previewBox.style.boxShadow = `${this.horizontalRange.value}px 
+    ${this.verticalRange.value}px 
+    ${this.blurRange.value}px 
+    ${this.spreadRange.value}px 
+    #000000`;
+
+    this.currentRule = this.previewBox.style.boxShadow;
+  }
+
+  showRule() {
+    this.rule.textContent = `${this.currentRule};`;
+    this.webkitRule.textContent = `${this.currentRule};`;
+    this.mozRule.textContent = `${this.currentRule};`;
+  }
 }
 
 // Selecting elements
@@ -58,5 +84,7 @@ const boxShadowGenerator = new BoxShadowGenerator(
   webkitRule,
   mozRule
 );
+
+boxShadowGenerator.initialize();
 
 // Event listeners

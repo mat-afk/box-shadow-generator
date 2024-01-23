@@ -111,9 +111,10 @@ h2 {
   margin-bottom: 0;
 }
 
-#shadow-color,
-#box-color {
+.shadow-color-input input,
+.box-color-input input {
   cursor: pointer;
+  height: 30px;
 }
 
 #opacity-reference {

@@ -92,43 +92,21 @@ const boxShadowGenerator = new BoxShadowGenerator(
 
 boxShadowGenerator.initialize();
 
+// Functions
+const setupInputEventListeners = (rangeInput, referenceInput) => {
+  rangeInput.addEventListener("input", () => {
+    referenceInput.value = rangeInput.value;
+    boxShadowGenerator.updateBoxShadow();
+  });
+
+  referenceInput.addEventListener("input", () => {
+    rangeInput.value = referenceInput.value;
+    boxShadowGenerator.updateBoxShadow();
+  });
+};
+
 // Event listeners
-horizontalRange.addEventListener("input", () => {
-  horizontalReference.value = horizontalRange.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-horizontalReference.addEventListener("input", () => {
-  horizontalRange.value = horizontalReference.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-verticalRange.addEventListener("input", () => {
-  verticalReference.value = verticalRange.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-verticalReference.addEventListener("input", () => {
-  verticalRange.value = verticalReference.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-blurRange.addEventListener("input", () => {
-  blurReference.value = blurRange.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-blurReference.addEventListener("input", () => {
-  blurRange.value = blurReference.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-spreadRange.addEventListener("input", () => {
-  spreadReference.value = spreadRange.value;
-  boxShadowGenerator.updateBoxShadow();
-});
-
-spreadReference.addEventListener("input", () => {
-  spreadRange.value = spreadReference.value;
-  boxShadowGenerator.updateBoxShadow();
-});
+setupInputEventListeners(horizontalRange, horizontalReference);
+setupInputEventListeners(verticalRange, verticalReference);
+setupInputEventListeners(blurRange, blurReference);
+setupInputEventListeners(spreadRange, spreadReference);

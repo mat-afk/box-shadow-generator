@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Box-shadow Generator</title>
+    <title>Box Shadow Generator</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Ubuntu Font -->
@@ -17,6 +17,102 @@
     <script src="js/script.js" defer></script>
   </head>
   <body>
-    <h1>Hello, world</h1>
+    <div id="box-shadow-generator">
+      <div id="controls-container">
+        <h2>Box Shadow configurations:</h2>
+        <div class="form-control">
+          <div class="range-input">
+            <label for="horizontal">Horizontal length:</label>
+            <input
+              type="range"
+              name="horizontal"
+              id="horizontal"
+              min="-100"
+              max="100"
+              value="5"
+            />
+          </div>
+          <div class="reference-input">
+            <input
+              type="number"
+              name="horizontal-reference"
+              id="horizontal-reference"
+            />
+            <p>px</p>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="range-input">
+            <label for="vertical">Vertical length:</label>
+            <input
+              type="range"
+              name="vertical"
+              id="vertical"
+              min="-100"
+              max="100"
+              value="5"
+            />
+          </div>
+          <div class="reference-input">
+            <input
+              type="number"
+              name="vertical-reference"
+              id="vertical-reference"
+            />
+            <p>px</p>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="range-input">
+            <label for="blur">Blur radius:</label>
+            <input
+              type="range"
+              name="blur"
+              id="blur"
+              min="0"
+              max="100"
+              value="10"
+            />
+          </div>
+          <div class="reference-input">
+            <input type="number" name="blur-reference" id="blur-reference" />
+            <p>px</p>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="range-input">
+            <label for="spread">Spread radius:</label>
+            <input
+              type="range"
+              name="spread"
+              id="spread"
+              min="-100"
+              max="100"
+              value="3"
+            />
+          </div>
+          <div class="reference-input">
+            <input
+              type="number"
+              name="spread-reference"
+              id="spread-reference"
+            />
+            <p>px</p>
+          </div>
+        </div>
+      </div>
+      <div id="preview">
+        <h2>Preview</h2>
+        <div id="box"></div>
+      </div>
+    </div>
+    <div id="generated-rule">
+      <h2>Copy and paste in your CSS file =]</h2>
+      <div id="rules-area">
+        <p id="rule">box-shadow <span></span></p>
+        <p id="webkit-rule">-webkit-box-shadow <span></span></p>
+        <p id="moz-rule">-moz-box-shadow <span></span></p>
+      </div>
+    </div>
   </body>
 </html>

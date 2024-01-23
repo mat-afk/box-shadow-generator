@@ -176,3 +176,26 @@ h2 {
   margin-top: 1rem;
   color: #555;
 }
+
+/* Responsive */
+
+@media (max-width: 425px) {
+  #box-shadow-generator {
+    flex-direction: column;
+  }
+
+  #controls-container,
+  #preview {
+    padding: 1rem 2rem;
+  }
+
+  #box {
+    width: 60%;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  #generated-rule {
+    margin-top: 2rem;
+  }
+}

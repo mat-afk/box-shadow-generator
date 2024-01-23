@@ -32,6 +32,8 @@ h2 {
   padding-bottom: 1.2rem;
   margin-bottom: 1.2rem;
   border-bottom: 1px dashed #ccc;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-control label {
@@ -89,12 +91,62 @@ h2 {
   margin: 0;
 }
 
+/* New features */
+
+#shadow-color-reference,
+#box-color-reference {
+  min-width: 100px;
+}
+
+.shadow-color-input,
+.box-color-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shadow-color-input label,
+.box-color-input label {
+  margin-bottom: 0;
+}
+
+#shadow-color,
+#box-color {
+  cursor: pointer;
+}
+
+#opacity-reference {
+  min-width: 50px;
+}
+
+.inset-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inset-input label {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+#inset {
+  align-self: flex-start;
+  height: 20px;
+  width: 20px;
+}
+
+/* Preview */
+
 #box {
   width: 100%;
   height: 300px;
   background-color: #fff;
   align-self: center;
 }
+
+/* Rules */
 
 #generated-rule {
   text-align: center;
@@ -110,4 +162,17 @@ h2 {
   margin: 0 auto;
   border: 2px dashed #555;
   padding: 1rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#rules-area:hover {
+  background-color: #dfdfdf;
+}
+
+#copy-instructions {
+  text-align: center;
+  font-style: italic;
+  margin-top: 1rem;
+  color: #555;
 }

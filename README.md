@@ -1,2 +1,3 @@
-# box-shadow-generator
-Box-shadow generator for CSS elements
+# Box-shadow Generator
+
+Box-shadow generator for CSS elements.

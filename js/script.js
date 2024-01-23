@@ -61,7 +61,7 @@ class BoxShadowGenerator {
     const rgba = `rgba(${this.hexToRgb(this.shadowColorReference.value)}, ${
       this.opacityReference.value
     })`;
-    
+
     this.previewBox.style.boxShadow = `${inset}
     ${this.horizontalReference.value}px 
     ${this.verticalReference.value}px 
@@ -115,6 +115,9 @@ const rule = document.querySelector("#rule span");
 const webkitRule = document.querySelector("#webkit-rule span");
 const mozRule = document.querySelector("#moz-rule span");
 
+const rulesArea = document.querySelector("#rules-area");
+const copyInstructions = document.querySelector("#copy-instructions");
+
 const boxShadowGenerator = new BoxShadowGenerator(
   horizontalRange,
   horizontalReference,
@@ -160,7 +163,18 @@ setupInputEventListeners(spreadRange, spreadReference);
 setupInputEventListeners(shadowColor, shadowColorReference);
 setupInputEventListeners(boxColor, boxColorReference);
 setupInputEventListeners(opacityRange, opacityReference);
-
 insetCheckbox.addEventListener("change", () => {
   boxShadowGenerator.updateBoxShadow();
+});
+
+// Copy to clipboard
+rulesArea.addEventListener("click", () => {
+  const rules = rulesArea.textContent.replace(/^\s*\n/gm, "");
+
+  navigator.clipboard.writeText(rules).then(() => {
+    copyInstructions.textContent = "Copied to clipboard!";
+    setTimeout(() => {
+      copyInstructions.textContent = "Click to copy to clipboard";
+    }, 1000);
+  });
 });
